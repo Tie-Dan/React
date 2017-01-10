@@ -4,7 +4,5 @@
  （如对你有帮助 点个赞拜）
 
  ##引入文件  
-  `<script src="../build/react.js"></script>`
-  `<script src="../build/react-dom.js"></script>`
-  `<script src="../build/browser.min.js"></script>`
+  
  
