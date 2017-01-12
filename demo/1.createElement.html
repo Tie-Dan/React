@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="../react.js"></script>
+<script src="../react-dom.js"></script>
+<script src="../browser.min.js"></script>
+<body>
+<span>
+          <!--
+         React对象上的createElement方法:
+            createElement:返回一个虚拟DOM
+            第一个参数:虚拟dom的名称(任意元素名称：div，span.....还可以是一个组件的名称)
+            第二个参数:虚拟dom上一些必要的属性(比如id，className，title.....一些必要属性)
+            第三个参数:虚拟dom中的子节点(文本节点或者标签节点) 可以定义多个
+        -->
+</span>
+<script>
+    var test=React.createElement(
+            'h1',
+            {className:'active'},
+            '大娃'
+    );
+    console.log(test)
+</script>
+</body>
+<script>
+
+</script>
+</html>

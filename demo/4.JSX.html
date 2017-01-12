@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<script src="../react.js"></script>
+<script src="../react-dom.js"></script>
+<script src="../browser.min.js"></script>
+<body>
+    <div id="obox"></div>
+<span>
+    <!--
+        JSX语法：解决创建一个虚拟dom成本问题
+            js不支持 需要一些编译插件或者是工程化工具编译(webpack)
+            加上browser.js   script 标签的type 改成 text/babel
+            ****组件返回的虚拟dom 只能有一个根节点
+    -->
+</span>
+</body>
+<script type="text/babel">
+    var Aaa=React.createClass({
+        render:function(){
+            return (
+                    <ul>
+                        <li>haha</li>
+                        <li>huhu</li>
+                        <li>haihai</li>
+                    </ul>
+            )
+        }
+    });
+        var ul=(<Aaa />);
+    ReactDOM.render(ul,document.getElementById('obox'))
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

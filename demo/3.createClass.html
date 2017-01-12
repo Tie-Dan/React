@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<script src="../react.js"></script>
+<script src="../react-dom.js"></script>
+<script src="../browser.min.js"></script>
+<body>
+    <div id="obox"></div>
+    <span>
+        <!--
+        React对象上的createClass方法:
+        createClass:创建组件(dom多次重用 创建一组虚拟DOM)
+                    参数是一个对象 有属性和方法
+                render属性  通过return 返回一组虚拟dom树
+        -->
+    </span>
+    <script>
+        var AAA=React.createClass({
+            render:function(){
+                return  React.createElement(
+                        'ul',
+                        {title:'hehe'},
+                        React.createElement(
+                                'li',
+                                {className:'active'},
+                                'haha'
+                        ),
+                        React.createElement(
+                                'li',
+                                {className:'active'},
+                                'huhu'
+                        ),
+                        React.createElement(
+                                'li',
+                                {className:'active'},
+                                'haihai'
+                        )
+                )
+            }
+        });
+        var ul=React.createElement(AAA);//组件必学转化成虚拟dom 才能用
+        ReactDOM.render(ul,document.getElementById('obox'));
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
