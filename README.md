@@ -44,10 +44,12 @@
         第一个参数是新属性
 		第二个参数是新状态
 	 接收到新的props或者state后，进行渲染之前调用，此时不允许更新props或state。
+	 
  4. `render`(组件更新输出dom)
 		 没有参数
 		 这个阶段访问的都是旧的虚拟dom 
 		只有之后的一个阶段访问的才是新的虚拟dom
+		
  5.  `componentDidUpdate`(组件更新完成)
 	 完成渲染新的props或者state后调用，此时可以访问到新的DOM元素。
 ###销毁期
