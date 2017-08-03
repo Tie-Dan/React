@@ -1,0 +1,199 @@
+React:
+    Facebook维护的一套框架 并引用到instagram
+    React只是我们熟悉MVC中的V层 只是视图层的一个框架 所以很简单
+    webApp和PC不同  通常webApp是单页面应用  交互会涉及dom操作  严重影响页面性能
+	但是有了React我们只操作这些虚拟dom(能减少浪费性能  只有再必要时 改变视图渲染到页面中)
+   	只有两个半api[createElement(后面jsx)、createClass、render]
+React和angular:
+	angular:页面像辆汽车 angular就是给汽车添加指令 相当于加一些装饰、太高它的马力
+        	 基础上增加一些新的功能 看上去高大上 但是造成一些性能的消耗
+	react:则不同 相当于创建一辆汽车 只有四个轱辘 一个座 所以不需要太多的 性能就能开动它
+		     因为react是创建虚拟的dom(virtualdom) 这个dom不是真正的dom 
+                          虚拟dom其实是一个js对象 用js对象存储dom上的信息 所以小的多 只存储必要信息
+React性能优化:                          
+    1.是渲染时性能的优化(虚拟dom)
+    2.是开发的优化   react的理念有了虚拟dom 因此 不需要依赖某个端
+ 	       因此它的理念就是一处开发处处使用 如何使用虚拟dom渲染到某个端上
+                就要引入不同的插件 调用不同的render方法 见详细     
+                
+    PC端的两个库:
+            react 主要用来创建虚拟dom
+            react-dom 将虚拟dom 渲染浏览器上
+            
+    React对象上的createElement方法  在这个方法中我们定义一个 虚拟dom
+	          第一个参数表示虚拟dom的名称 (任意的元素名称:div、a、...)
+	          第二个参数表示虚拟dom上一些必要的属性(比如id，className，title等等一些方法)
+	          第三个参数开始表示该虚拟dom中所有子元素(定义文本节点 可以直接书写 不用 createElement)
+    ReactDOM对象上的render方法
+	          是将虚拟Dom渲染到页面中一个方法
+	          第一个参数表示虚拟dom
+	          第二个参数表示真实dom容器元素
+	          第三个参数是一个回调函数
+createClass(组件):组件名称第一个字母大写
+                注意:React 的 JSX 使用大、小写的约定来区分本地组件的类和 HTML标签。
+             参数是对象  对象中的属性和方法是对组件说明
+             作用域是组件当前对象
+     render方法:将组件中的虚拟dom输出    必须有返回值(虚拟dom)             
+             通常将组件渲染到页面中要将组件转化成一个虚拟DOM
+    JSX语法:
+       	 解决创建一个虚拟dom成本过大的问题
+        jsx语法就是让我们用书写html中元素标签的方式来定义一个虚拟dom
+        html怎么写虚拟dom怎么写	
+            html:<div id="app"></div>
+            jsx:<div id="app"></div>
+    	但是js不支持这个语法 所以我们需要一些编译的插件或者是用工程化工具编译
+组件的API:
+    设置状态:setState({},fncallback)
+                第一个参数是设置的状态
+                第二个是回调函数会在设置状态成功以后触发
+                this.setState({data:data}, function () {
+                   console.log(that.state.data);
+                });
+    替换状态:replaceState({},fncallback)用法和上面一样
+               第一个参数 将要设置的新状态 该状态会替换当前的state
+               第二个参数 回调函数 该函数会在replaceState设置成功 且组件重新渲染后调用
+        注意:不能在组件内部通过this.state修改状态setState()并不会立即改变this.state
+                而是创建一个即将处理的state, setState()并不一定是同步的，
+                为了提升性能React会批量执行state和DOM渲染。
+    设置属性:setProps({},fncallback)
+                第一个参数 将要设置的新属性 该状态和当前的props合并
+                第二个参数 回调函数 该函数会在setProps 设置成功 且组件重新渲染后调用
+                props相当于组件的数据流，它总是会从父组件向下传递至所有的子组件中。
+    替换属性:replaceProps({},fncallback)
+                第一个参数 将要设置的新属性，该属性会替换当前的props
+                第二个参数 可选参数，回调函数。该函数会在replaceProps设置成功，且组件重新渲染后调用
+                replaceProps()方法与setProps类似，但它会删除原有
+    强制更新:forceUpdate(fncallback)
+        尽量避免使用forceUpdate()，而仅从this.props和this.state中读取状态并由React触发render()调用
+    获取DOM节点:findDOMNode
+        返回值：DOM元素DOMElement
+    判断组件挂载状态:isMounted
+        返回值：true或false，表示组件是否已挂载到DOM中
+        isMounted()方法用于判断组件是否已挂载到DOM中。
+        可以使用该方法保证了setState()和forceUpdate()在异步场景下的调用不会出错。
+	插值:
+	        在react中插值语法是{} 里面书写任意表达式   js内置的方法  定义的方法、运算符、语句等等
+Props(组件属性):
+	组件添加一些属性 让他们展示的结果不一样
+          在jsx中为组件添加属性跟html中添加属性的方式一样
+         只不过react 组件可以执行插值(可以将js中数据添加到组件中)
+getDefaultProps(添加默认属性)
+               没有传递属性数据   属性数据调用方法是不安全的 
+               注意:一定有返回值 返回值就是默认属性
+样式定义:
+             样式style属性的值只能是对象 不能为style 添加字符串的值
+     font-size复合属性要用驼峰式命名
+            有css3前缀的属性第一个字母要大写 		
+组件生命周期:
+	创建期:组件创建进入该阶段已经创建
+		 五个阶段:
+		 	1.获取默认的属性getDefaultProps
+		 		组件还没创建 只能看到默认属性
+		 	2.获取默认的状态getInitialState
+		 		组件内部数据创建出来  我们可以访问到组件实例化对象
+		 		该阶段已经解析属性   可以将属性的值 赋值给状态(很常用的为状态传递数据方式)
+		 		在组件外部只能为组件添加属性数据  而不能添加状态数据
+		 		因为处理状态的阶段在处理属性的阶段后面  可以在状态处理方法中处理属性的数据
+		 	3.组件将要被构建 componentWillMount (指的是组件的虚拟dom)
+		 		该阶段的状态属性已经设置完成  因此我们可以在这个阶段处理状态数据及属性数据
+		 	4.组件渲染输出虚拟dom render
+		 	 	一定要通过return返回虚拟dom树
+		 	 	所有dom 都要在一个根dom中
+		 	5.组件已经构建完成componentDidMount
+		 	  	创建完虚拟dom 这个阶段可以操作dom元素
+		 	  	操作的结果直接反应在页面中
+ReactDOM.findDOMNode根据虚拟dom获取真实的dom元素(参数是this 就可以访问组件实例化对象)
+子组件:
+    父--子(两种传递方法)
+        1.传递属性
+                <父>
+                    <子 data={this.props.data}></子>
+                </父>
+            这种传递数据的特征 只能传递一次(除非父组件作为其他组件的子组件发生了属性改变)
+        2.传递状态
+                 <父>
+                    <子 data={this.state.data}></子>
+                 </父>
+            这种传递数据的特征 父组件状态改变会让子组件发生一次属性的改变
+                               会触发子组件进入存在期 并引发子组件存在期的五个阶段法的调用
+	存在期:组件已经创建 内部状态发生改变 进入该阶段
+		    1.组件接受新的属性 componentWillReceiveProps
+		        第一个参数 新的属性
+		        组件内部更新状态 不会触发该方法
+		    2.组件是否应该更新shouldComponentUpdate
+		        第一个参数 新的属性
+		        第二个参数 新的状态
+		        通常做更新优化 如果属性状态改变的时候没必要更新 后面三个方法就没必要执行
+		        必须有返回值 true/false  false 后面3个方法不执行
+		    3.组件将要被更新 componentWillUpdate
+		        第一个参数 新的属性
+		        第二个参数 新的状态
+		    4.组件更新输出虚拟dom
+		        没有参数
+		    5.组件已经更新完成 componentDidUpdate
+		        第一个参数 上一个属性
+                第二个参数 上一个状态
+	销毁期:组件从页面删除 进入该阶段
+            componentWillUnmount 组件即将被销毁触发
+非元素属性:
+    key:表示为元素设置绑定reactid
+    Rel:对虚拟dom的一个引用 组件中可以根据这个属性来快速获取组件中的元素
+    dangerouslySetInnerHTML:对虚拟dom设置内容 内容可以是任意的 比如html代码、行内样式
+             这个属性必须是对象  并且用__html表示内容值
+=======================================================
+使用 create-react-app 快速构建 React 开发环境
+create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。
+create-react-app 自动创建的项目是基于 Webpack + ES6 。
+命令:
+    cnpm install -g create-react-app
+    create-react-app my-app
+    cd my-app/
+    npm start
+===========================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+

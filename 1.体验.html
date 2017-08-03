@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        //创建虚拟DOM
+        let h1 = React.createElement(
+            'h1',
+            {
+                title:'你好',
+            },
+            'welcome react'
+        );
+        //将虚拟DOM 渲染到页面
+        ReactDOM.render(h1,document.getElementById('app'));
+    </script>
+</body>
+
+</html>

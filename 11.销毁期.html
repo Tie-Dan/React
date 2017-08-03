@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <style>
+        .ochild {
+            width: 100px;
+            height: 50px;
+            background: red;
+            position: fixed;
+            right: 20px;
+            bottom: 150px;
+            color: white;
+        }
+
+        .back {
+            width: 100px;
+            height: 50px;
+            background: #000;
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            color: white;
+        }
+
+        body {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    let Back = React.createClass({
+            //获取默认属性
+            getDefaultProps(){
+                console.log('01 getDefaultProps');
+                return {
+                    title: '默认属性'
+                }
+            },
+            //设置默认的状态
+            getInitialState(){
+                console.log('02 getInitialState');
+                return {
+                    //用属性来设置
+                    title: this.props.title
+                }
+            },
+            //将要构建组件
+            componentWillMount(){
+                console.log('03 componentWillMount')
+            },
+            render(){
+                //输出虚拟dom
+                console.log('04 render');
+
+                return (<div className='back' onClick={this.top}>{this.props.title}</div>)
+            },
+            //组件已经构建完成
+            componentDidMount(){
+                console.log('05 comonentDidMount')
+            },
+            //返回顶部方法
+            top(){
+                //将滚动设置到顶部
+                window.scrollTo(0, 0);
+            },
+            //存在期
+            componentWillReceiveProps(){  //1.接受属性
+                console.log('1 接受属性')
+            },
+            shouldComponentUpdate(){      //2.是否应该更新 必须有返回值
+                console.log('2 更新 ')
+                return true;
+            },
+            componentWillUpdate() { //3 组件将要更新
+                console.log('3 组件将要更新')
+            },
+            //第四个阶段渲染dom render 方法已经被定义
+            componentDidUpdate(){//5.组件更新完成
+                console.log('5.组件更新完成')
+            }
+        })
+    ;
+    //定义父组件
+    let Child = React.createClass({
+        //定义默认状态
+        getInitialState(){
+            return {
+                //用属性来设置
+                title: '父状态'
+            }
+        },
+        render(){
+            return (
+                    <div className="child">
+                        <div className="ochild">
+                            头条新闻
+                            <Back title={this.state.title}/>
+
+                        </div>
+                    </div>
+            )
+        },
+        //定义滚动事件
+        componentDidMount(){
+            window.addEventListener('scroll', () => {//不用箭头函数就得 函数外保存this
+                //如果scrollY大于500 我们要显示返回
+                if (window.scrollY > 500) {
+
+                    this.setState({
+                        title: '返回顶部'
+                    })
+                } else {
+                    this.setState({
+                        title: '父状态'
+                    })
+                }
+            })
+        },
+        //销毁期
+        componentWillUnmount(){
+            console.log('销毁期')
+        }
+    })
+    ReactDOM.render(<Child />, document.getElementById('app'));
+    //过5秒钟销毁
+    setTimeout(function () {
+        ReactDOM.render(<Back />, document.getElementById('app'));
+    },3000)
+</script>
+</body>
+
+</html>

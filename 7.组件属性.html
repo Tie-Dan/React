@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        //创建组件
+        let Titl = React.createClass({
+            getDefaultProps(){
+                return {
+                    titData:['aaa','ccc']
+                }
+            },
+            getTitle(){
+                let arr=this.props.titData;
+                return arr.map((value,index)=>{
+                    return (<li key={index}>{value}</li>)
+                })
+            },
+            render(){
+                return (
+                    <div className="title">
+                        {/*渲染子组建*/}
+                        <ul>
+                            {this.getTitle()}
+                        </ul>
+                    </div>
+                )
+            }
+        })
+        //将组件渲染到页面中 传递数组 所以我们要插值
+        ReactDOM.render(<Titl titData={['aaa','bbb']}/>,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

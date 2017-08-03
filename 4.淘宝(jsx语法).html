@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            list-style: none;
+        }
+        ul{
+            background: orange;
+            padding: 10px;
+            width: 120px;
+            margin: 200px;
+        }
+        li{
+            color: white;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="text/babel">
+     let Ul=React.createClass({
+        render(){
+            // jsx语法返回虚拟DOM树
+            return(
+                <ul>
+                    <li>女装/男装/</li>
+                    <li>女装/男装/</li>
+                    <li>女装/男装/</li>
+                </ul>
+            )
+        }
+     });
+        //将组件转化 虚拟DOM 可以用 jsx语法转化
+        let ul=(<Ul />)
+        //将虚拟DOM渲染到页面中
+        ReactDOM.render(ul,document.getElementById('app'));
+
+
+    </script>
+</body>
+
+</html>

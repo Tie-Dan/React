@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <style>
+        .back{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+            right: 20px;
+            bottom: 100px;
+            color: white;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        let Back = React.createClass({
+        	//获取默认属性
+        	getDefaultProps(){
+        		console.log('01 getDefaultProps');
+        		return {
+        			title:'默认属性'
+        		}
+        	},
+        	//设置默认的状态
+        	getInitialState(){
+        		console.log('02 getInitialState');
+        		return {
+            //用属性来设置
+        			title:this.props.title
+        		}
+        	},
+        	//将要构建组件
+        	componentWillMount(){
+        		console.log('03 componentWillMount')
+        	},
+        	render(){
+            //输出虚拟dom
+        		console.log('04 render');
+        		return (<div className='back' onClick={this.top}><span>123</span>{this.state.title}</div>)
+        	},
+        	//组件已经构建完成
+        	componentDidMount(){
+        		console.log('05 comonentDidMount')
+                //查询跟节点
+                console.log(ReactDOM.findDOMNode(this))
+                //更改字体颜色
+                ReactDOM.findDOMNode(this).style.color='red';
+        	},
+            //返回顶部方法
+            top(){
+        	    //将滚动设置到顶部
+                window.scrollTo(0,0);
+                // 更改标题
+                this.setState({
+                    title:'新标题'
+                })
+            }
+        });
+       ReactDOM.render(<Back />,document.getElementById('app'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+
+<div id="app"></div>
+<script type="text/babel">
+    let DataList = React.createClass({
+        getInitialState: function () {
+            return {
+                dataUrl:'',
+                arrData:[{title:[]}]
+            };
+        },
+        componentDidMount: function () {
+            $.ajax({
+                url: this.props.source,
+                dataType:'jsonp',
+                cache:true,
+                success:(res)=>{
+                    this.setState({
+                        dataUrl:this.props.source,
+                        arrData:res.subjects
+                    })
+                }
+            })
+        },
+        render: function () {
+            console.log(this.state.arrData);
+            return (
+                    <div>
+                        <div>数据接口地址:<a href={this.state.dataUrl}>{this.state.dataUrl}</a></div>
+                        <ul>
+                            {this.state.arrData.map((value,index)=> {
+                                return (<li key={index}>{value.title}</li>)
+                            })}
+                        </ul>
+                    </div>
+            );
+        }
+    });
+    ReactDOM.render(
+            <DataList source="https://api.douban.com/v2/movie/top250?count=10'"/>,
+        document.getElementById('app')
+    );
+</script>
+</body>
+
+</html>

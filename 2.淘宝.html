@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+            list-style: none;
+        }
+        ul{
+            background: orange;
+            padding: 10px;
+            width: 120px;
+            margin: 200px;
+        }
+        li{
+            color: white;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <script type="text/babel">
+        //创建虚拟DOM
+      let Ul = React.createElement(
+          'ul',
+          null,
+          React.createElement(
+              'li',
+              null,
+              '女装/男装/'
+          ),
+          React.createElement(
+              'li',
+              null,
+              '童装/玩具/'
+          )
+      );
+      //将虚拟DOM 渲染到页面
+        ReactDOM.render(Ul,document.getElementById('app'));
+        ReactDOM.render(Ul,document.getElementById('app2'));
+    </script>
+</body>
+
+</html>

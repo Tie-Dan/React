@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+      //创建组件
+        let Search=React.createClass({
+            //点击按钮触发
+            goSearch(e){
+                //这里的事件对象e只能获取span元素 想要获取input  可以通过rel属性来获取input
+                //获取input
+                let inp = this.refs.serInt;
+                console.log(inp.value)
+            },
+            render(){
+                let count = {
+                    __html: '<span style="color: red; display: inline-block;width: 30px;">高级搜索</span>'
+                }
+                return (
+                    <div className="search">
+                        <input ref="serInt" type="text"/>
+                        <span onClick={this.goSearch}>搜索</span>
+                        {/*内容样式通过dangerouslySetInnerHTML设置*/}
+                        <span dangerouslySetInnerHTML={count}></span>
+                    </div>
+                )
+            }
+        });
+        ReactDOM.render(<Search />,document.getElementById('app'))
+    </script>
+</body>
+
+</html>

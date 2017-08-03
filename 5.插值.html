@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        //创建状态栏 输出用户名和时间
+        //创建组件
+       let Header = React.createClass({
+            //render 输出虚拟DOM
+           render:function () {
+               let username='Tiedan';
+               //定义时间
+               let date = new Date();
+               return (
+                   <div className="Header">
+                        <div className="inner">
+                            {/*在jsx语法中书写注释一定要写在插值符号中*/}
+                            {/*插入用户名*/}
+                            <span>{username}</span>
+                            {/*渲染时间,如果小时大于12,输出下午好否则输出上午好*/}
+                            <span>{date.getHours()>12?'下午好':'上午好'}</span>
+                        </div>
+                   </div>
+               )
+           }
+       })
+        //将组件渲染到页面中
+        ReactDOM.render(<Header />,document.getElementById('app'));
+    </script>
+</body>
+
+</html>

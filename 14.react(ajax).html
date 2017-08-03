@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    let DataList = React.createClass({
+        render: function () {
+            return (
+                    <div>
+                        <ul>
+                            {this.props.arr.map((value,index)=> {
+                                return (<li key={index}>{value.title}</li>)
+                            })}
+                        </ul>
+                    </div>
+            );
+        }
+    });
+    $.ajax({
+        url: "https://api.douban.com/v2/movie/top250?count=10",
+        dataType:'jsonp',
+        cache:true,
+        success:(res)=>{
+            ReactDOM.render( <DataList arr={res.subjects}/>,  document.getElementById('app'));
+        }
+    })
+</script>
+</body>
+
+</html>

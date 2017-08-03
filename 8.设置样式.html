@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        let H1 = React.createClass({
+            render(){
+                let styles={
+                    color:'red'
+                }
+                return (<h1 style={styles}>女子暴打鳄鱼</h1>)
+            }
+        })
+        ReactDOM.render(<H1 />,document.getElementById('app'));
+    </script>
+</body>
+
+</html>
