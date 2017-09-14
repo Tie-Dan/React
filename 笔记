@@ -10,12 +10,27 @@ React和angular:
 	react:则不同 相当于创建一辆汽车 只有四个轱辘 一个座 所以不需要太多的 性能就能开动它
 		     因为react是创建虚拟的dom(virtualdom) 这个dom不是真正的dom 
                           虚拟dom其实是一个js对象 用js对象存储dom上的信息 所以小的多 只存储必要信息
+ng、vue:(数据渲染页面)  小型SPA
+    1.MVC
+    2.数据交互
+    3.渲染页面
+    4.弱模块化
+React:(模块化、状态管理) 大型应用、超大型
+    1.不是MVC框架
+    2.本身不能数据交互
+    3.极强模块化
+技术栈:
+    1.react-dom
+    2.react-server
+    3.react-flux
+    4.react-redux
+    5.react-native
+
 React性能优化:                          
     1.是渲染时性能的优化(虚拟dom)
     2.是开发的优化   react的理念有了虚拟dom 因此 不需要依赖某个端
  	       因此它的理念就是一处开发处处使用 如何使用虚拟dom渲染到某个端上
-                就要引入不同的插件 调用不同的render方法 见详细     
-                
+                就要引入不同的插件 调用不同的render方法 见详细
     PC端的两个库:
             react 主要用来创建虚拟dom
             react-dom 将虚拟dom 渲染浏览器上
@@ -140,16 +155,33 @@ ReactDOM.findDOMNode根据虚拟dom获取真实的dom元素(参数是this 就可
     Rel:对虚拟dom的一个引用 组件中可以根据这个属性来快速获取组件中的元素
     dangerouslySetInnerHTML:对虚拟dom设置内容 内容可以是任意的 比如html代码、行内样式
              这个属性必须是对象  并且用__html表示内容值
-=======================================================
-使用 create-react-app 快速构建 React 开发环境
-create-react-app 是来自于 Facebook，通过该命令我们无需配置就能快速构建 React 开发环境。
-create-react-app 自动创建的项目是基于 Webpack + ES6 。
-命令:
-    cnpm install -g create-react-app
-    create-react-app my-app
-    cd my-app/
-    npm start
-===========================================================
+          用法:  <p dangerouslySetInnerHTML={{__html:html}}></p>
+            也可以把html代码转成unicode编码 直接放里面
+
+组件化:
+    1.定义组件
+        class xxx  extends  React.Component{
+            constructor(...args){
+                super(...args)  //继承基类的所有初始化方法
+            }
+            render(){
+               return
+                    //code
+            }
+        }
+    2.组件使用 (跟html标签一样)
+        ReactDOM.render(<xxx></xxx>,id)
+    3.<xxx {...this.props}></xxx>   继承父级所有的属性
+Array的4个新方法:
+    1.map       加条件的循环
+    2.reduce    汇总
+    3.filter    过滤
+    4.forEach   循环没有返回值
+  1.只有状态改变才能重新渲染组件
+  2.初始化状态放在构造函数里面
+===============================================
+路由的3.0和4.0 完全不一样 (指定版本3.0)
+npm install react-router --save
 
 
 
@@ -179,21 +211,4 @@ create-react-app 自动创建的项目是基于 Webpack + ES6 。
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            
-            
-            
-            
-            
 

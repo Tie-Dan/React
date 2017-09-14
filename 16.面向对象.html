@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            showName(){
+                alert(`我的名字叫${this.name}`)
+            }
+            showAge(){
+                alert(`我的年龄${this.age}`)
+            }
+        };
+        class Worker extends Person{
+            constructor(name,age,job){
+                super(name,age)//超类 代表父类的constructor
+                this.job=job;
+            }
+            showJob(){
+                alert(`我的工作是${this.job}`)
+            }
+        }
+        let W1=new Worker(`孙鹏`,10,`搬砖`);
+            W1.showName();
+            W1.showJob();
+            W1.showAge();
+    </script>
+</body>
+
+</html>

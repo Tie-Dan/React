@@ -1,0 +1,46 @@
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1457840113; bh=v6ikesb9nqx30MV4TzWjZtSH6l1gFPXY8aYfFqAdGSY=;
+	h=From:To:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:Message-ID;
+	b=utC+WyIzDIV3g4Xr11fVxRMpcw/q3iLlyNlTk7iFvtxUXU3Szio6J3SsR8DADLbWr
+	 rxKr+pSHn1usxEDAP4SiKJ6uXecvbSMG/xv+QHMztngujFuhND3KMb5T5mFwVbHZVl
+	 yqYK5YNmQxzjriABF2U0qDlm7/+l6SRr2Q/89r5w=
+X-QQ-SSF: 000000000000009000000000000000S
+X-HAS-ATTACH: no
+X-QQ-BUSINESS-ORIGIN: 2
+X-Originating-IP: 211.151.107.60
+X-QQ-STYLE:
+X-QQ-mid: webenglish7t1457839981t816787
+From: "=?ISO-8859-1?B?THNvbmc=?=" <liu.song940@qq.com>
+To: "=?ISO-8859-1?B?aGk=?=" <hi@lsong.org>
+Subject: test
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_56E4DF6D_119E8C78_06377FE2"
+Content-Transfer-Encoding: 8Bit
+Date: Sun, 13 Mar 2016 11:33:01 +0800
+X-Priority: 3
+Message-ID: <tencent_4F34D055476789304B5F8318@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+X-QQ-SENDSIZE: 520
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_56E4DF6D_119E8C78_06377FE2
+Content-Type: text/plain;
+	charset="ISO-8859-1"
+Content-Transfer-Encoding: base64
+
+dGVzdCBtYWls
+
+------=_NextPart_56E4DF6D_119E8C78_06377FE2
+Content-Type: text/html;
+	charset="ISO-8859-2"
+Content-Transfer-Encoding: base64
+
+PGRpdj50ZXN0IG1haWw8L2Rpdj4=
+
+------=_NextPart_56E4DF6D_119E8C78_06377FE2--
+
+

@@ -1,0 +1,50 @@
+EHLO mail-yw0-f170.google.com
+MAIL FROM:<song940@gmail.com>
+RCPT TO:<test@lsong.org>
+DATA
+Received: by mail-yw0-f170.google.com with SMTP id g127so132830217ywf.2
+        for <test@lsong.org>; Sat, 12 Mar 2016 19:42:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=H4XeTMGrN/NFLvNXulP6uMzGd4MOaA8DQ8Dx30E+Ss4=;
+        b=nSQ7rqNCp30K6YjVWKIkSy0m34ajRjwh2GOpUCWlsjDf0SfqDsBy1+KD5psoheI7g2
+         s5izZrjRfiVjIx9q25pZrTA2WCAmyR8Jv8TEnQ9iWTV8oLSxWR0gkFeOa1vwmRJUO6xN
+         1O2esDy56tqekWS7T01X9NpEqEu5hJzP+1ORpVAxfwIpmX8fkJ/NHogb0qHAXcCgZ+f2
+         b3tLnGAEhCPNm3m7/2ag8SdgS4GSdSR5DilyssQOPn6B04ZImaIi1qJJbhe9pjSn2lhT
+         CTChLARzxZXKtKVuIpI5XtGzpwIczC5sgV4EjdXmobA32XaXv2K2NFXM8uoPG+Jg9vCL
+         Yj0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=H4XeTMGrN/NFLvNXulP6uMzGd4MOaA8DQ8Dx30E+Ss4=;
+        b=NZFrvx+xh6Hsgm8W06yWTnae7OWIXcMcyoehqF3bDUiKNb+vFV/ljsM+GIK2TQaNZr
+         w1jYoQnhta0qpV26KhJ5dz+YGF7dzoIL221ZsF956ZvVzRryQQJsT70f9JItsVjYD9pv
+         NXStCEADigvRrRr0VaDQrIYdg84mIhmn1ixk65VmxdNemwBj7UyV4aZwX0Aw7j58Y1sT
+         RLVZiQW78FYKbhrg+m4rverhh/c+mF0A+5CexvG1m+LDpiNKaRlgN3UvSM9plE2erqG0
+         pl7JcXLPstLaRDObI3vqN9JjgrdrSwd6R/0I+ylMcMDEzMAkCum3usP3jYdbwgN/grOE
+         UzxA==
+X-Gm-Message-State: AD7BkJI9qLp8RnsKeJZaJsy0huHnj19In1ZlnNJYTDni1CQY3rL7WFKjuAMzxy5rnX0t7bKX0tvzTLDMDpnh1g==
+X-Received: by 10.13.193.71 with SMTP id c68mr9755785ywd.58.1457840550797;
+ Sat, 12 Mar 2016 19:42:30 -0800 (PST)
+MIME-Version: 1.0
+From: Lsong <song940@gmail.com>
+Date: Sun, 13 Mar 2016 03:42:21 +0000
+Message-ID: <CAHLPuWMr4+pX8eGp_x+wZUacmJGY-fKaO4ZdipC1stSEhoGpYA@mail.gmail.com>
+Subject: hello
+To: test@lsong.org
+Content-Type: multipart/alternative; boundary=001a114ca9c82b67ff052de5f419
+
+--001a114ca9c82b67ff052de5f419
+Content-Type: text/plain; charset=UTF-8
+
+test message
+
+--001a114ca9c82b67ff052de5f419
+Content-Type: text/html; charset=UTF-8
+
+<div dir="ltr">test message</div>
+
+--001a114ca9c82b67ff052de5f419--
+.
+QUIT

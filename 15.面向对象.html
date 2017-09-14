@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            showName(){
+                alert(`我的名字叫${this.name}`)
+            }
+            showAge(){
+                alert(`我的年龄${this.age}`)
+            }
+        }
+        let P1= new Person(`张三`,19);
+        P1.showAge();
+        P1.showName();
+    </script>
+</body>
+
+</html>

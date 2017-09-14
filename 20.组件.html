@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    class UserInfo extends React.Component {
+        constructor(...args) {
+            super(...args)
+        }
+
+        render() {
+            return <div>  {/*return  必须有东西 不能换行*/}
+                <span>名字:{this.props.name}</span>{/*属性是只读的*/}
+                <span>年龄:{this.props.age}</span>
+            </div>;
+        }
+    };
+
+    class UserList extends React.Component {
+        render() {
+            return <div>
+                {this.props.arr.map((json) => {
+                    return <UserInfo name={json.name} age={json.age}/>
+                })}
+            </div>
+        }
+    };
+    window.onload = function () {
+        ReactDOM.render(
+                <UserList arr={[{name: '张三', age: 18}, {name: '李四', age: 19}, {
+                    name: '王五',
+                    age: 20
+                }]}></UserList>, document.getElementById('app'))
+    }
+</script>
+</body>
+
+</html>

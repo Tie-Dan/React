@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Time extends React.Component{
+            constructor(...args){
+                super(...args)
+                let oDate=new Date();
+                this.state={
+                    h:oDate.getHours(),
+                    m:oDate.getMinutes(),
+                    s:oDate.getSeconds()
+                }
+                setInterval(this.fn.bind(this),1000)
+            }
+            fn(){
+                let oDate = new  Date();
+                this.setState({
+                    h:oDate.getHours(),
+                    m:oDate.getMinutes(),
+                    s:oDate.getSeconds()
+                })
+            }
+            render(){
+                return <div>
+                    <span>{this.state.h}:</span>
+                    <span>{this.state.m}:</span>
+                    <span>{this.state.s}</span>
+                </div>
+            }
+        }
+        ReactDOM.render(
+            <Time/>,
+            document.getElementById('app')
+        )
+    </script>
+</body>
+</html>
