@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "mock": "json-server db.json --port 3004"
+    }
+}
